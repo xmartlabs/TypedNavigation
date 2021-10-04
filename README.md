@@ -1,6 +1,28 @@
 # TypedNavigation
+[![Run detekt and build](https://github.com/xmartlabs/TypedNavigation/actions/workflows/compile-and-check.yml/badge.svg)](https://github.com/xmartlabs/TypedNavigation/actions/workflows/compile-and-check.yml)
 
-A lightweith libary to help you navigate in compose with well typed functions. 
+A lightweight library to help you navigate in compose with well typed functions. 
+
+### Installation:
+
+You can add this library to your project by just adding the following code to your root `build.gradle`
+
+```groovy
+	allprojects {
+		repositories {
+			// ...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+and this other to your app `build.gradle`
+
+```groovy
+implementation 'com.github.xmartlabs:TypedNavigation:0.0.1'
+```
+
+### Usage:
 
 You just have to define your screens and the arguments they receive:
 
