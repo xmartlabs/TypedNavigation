@@ -9,7 +9,7 @@ fun NavGraphBuilder.composable(
         function: @Composable () -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         function()
@@ -21,7 +21,7 @@ fun <A> NavGraphBuilder.composable(
         function: @Composable (A) -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         val arg1 = it.arguments?.get("a1") as A
@@ -34,7 +34,7 @@ fun <A1, A2> NavGraphBuilder.composable(
         function: @Composable (A1, A2) -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         val arg1 = it.arguments?.get("a1") as A1
@@ -48,7 +48,7 @@ fun <A1, A2, A3> NavGraphBuilder.composable(
         function: @Composable (A1, A2, A3) -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         val arg1 = it.arguments?.get("a1") as A1
@@ -63,7 +63,7 @@ fun <A1, A2, A3, A4> NavGraphBuilder.composable(
         function: @Composable (A1, A2, A3, A4) -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         val arg1 = it.arguments?.get("a1") as A1
@@ -79,7 +79,7 @@ fun <A1, A2, A3, A4, A5> NavGraphBuilder.composable(
         function: @Composable (A1, A2, A3, A4, A5) -> Unit
 ) {
     composable(
-            screen.route,
+            screen.url,
             screen.navArguments
     ) {
         val arg1 = it.arguments?.get("a1") as A1
