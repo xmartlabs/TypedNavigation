@@ -25,13 +25,12 @@ setContent {
       Sample(a, b, c)
     }
   }
-}
 ```
 
 To navigate from one screen to another:
 
 ```[kotlin]
-navigationController.navigate(Router.sample.navigate("a", "b", "c"))
+navigationController.navigate(Router.sample.route("a", "b", "c"))
 ```
 
 For more examples you can check out our sample app.

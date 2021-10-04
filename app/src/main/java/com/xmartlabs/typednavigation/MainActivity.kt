@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navigationController: NavHostController = rememberNavController()
-            NavHost(navController = navigationController, startDestination = Router.default.route) {
+            NavHost(navController = navigationController, startDestination = Router.default.url) {
                 composable(Router.default) {
                     Default(navigationController = navigationController)
                 }
@@ -40,10 +40,10 @@ fun Default(navigationController: NavHostController) = Row(
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = Arrangement.SpaceEvenly
 ) {
-    Button(onClick = { navigationController.navigate(Router.home.navigate("asd", 5)) }) {
+    Button(onClick = { navigationController.navigate(Router.home.route("asd", 5)) }) {
         Text(text = "Home")
     }
-    Button(onClick = { navigationController.navigate(Router.sample.navigate("a", "b", "c")) }) {
+    Button(onClick = { navigationController.navigate(Router.sample.route("a", "b", "c")) }) {
         Text(text = "Sample")
     }
 
