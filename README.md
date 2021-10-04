@@ -17,7 +17,7 @@ To add your screen to the `NavHost`:
 ```kotlin
 setContent {
   val navigationController: NavHostController = rememberNavController()
-  NavHost(navController = navigationController, startDestination = Router.default.route) {
+  NavHost(navController = navigationController, startDestination = Router.default.url) {
     composable(Router.default) {
       Default(navigationController = navigationController)
     }
