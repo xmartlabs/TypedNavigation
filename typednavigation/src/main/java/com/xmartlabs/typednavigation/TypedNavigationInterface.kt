@@ -3,7 +3,8 @@ package com.xmartlabs.typednavigation
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 
-/** An interface that implements the basic attributes needed for navigation
+/**
+An interface that implements the basic attributes needed for navigation
  *
  * @property name the name of the destination screen
  * @property url the url string for the navigation
@@ -16,14 +17,12 @@ sealed interface TypedNavigationInterface {
     val navArguments: List<NamedNavArgument>
 }
 
-/** An interface that implements navigation without parameters
+/** Defines the navigation without parameters
  *
  */
 interface TypedNavigationInterface0 : TypedNavigationInterface {
 
-    /** Get the [String] route for the destination
-     * @return the [String] containing the route of the destination
-     */
+    /** Returns the route of the destination */
     fun route(): String
 }
 

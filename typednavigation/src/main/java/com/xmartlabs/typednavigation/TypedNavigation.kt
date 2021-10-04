@@ -4,14 +4,9 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 
-/** Sealed class that implements [TypedNavigationInterface]
- *
- *
- */
+/** Sealed class that implements [TypedNavigationInterface] */
 sealed class TypedNavigation {
-    /** Implementation for the [TypedNavigationInterface0]
-     *
-     */
+    /** Implementation for the [TypedNavigationInterface0] */
     data class E(
         override val name: String,
         override val url: String = "$name/",
@@ -20,9 +15,7 @@ sealed class TypedNavigation {
         override fun route(): String = "$name/"
     }
 
-    /** Implementation for the [TypedNavigationInterface1]
-     *
-     */
+    /** Implementation for the [TypedNavigationInterface1] */
     data class A1<A>(
         override val name: String,
         override val t1: NavType<A>,
@@ -34,9 +27,7 @@ sealed class TypedNavigation {
         override fun route(arg1: A): String = "$name/${arg1.toString()}"
     }
 
-    /** Implementation for the [TypedNavigationInterface2]
-     *
-     */
+    /** Implementation for the [TypedNavigationInterface2] */
     data class A2<A1, A2>(
         override val name: String,
         override val t1: NavType<A1>,
@@ -51,9 +42,7 @@ sealed class TypedNavigation {
             "$name/${arg1.toString()}/${arg2.toString()}"
     }
 
-    /** Implementation for the [TypedNavigationInterface3]
-     *
-     */
+    /** Implementation for the [TypedNavigationInterface3] */
     data class A3<A1, A2, A3>(
         override val name: String,
         override val t1: NavType<A1>,
@@ -70,9 +59,7 @@ sealed class TypedNavigation {
             "$name/${arg1.toString()}/${arg2.toString()}/${arg3.toString()}"
     }
 
-    /** Implementation for the [TypedNavigationInterface4]
-     *
-     */
+    /** Implementation for the [TypedNavigationInterface4] */
     data class A4<A1, A2, A3, A4>(
         override val name: String,
         override val t1: NavType<A1>,
@@ -91,9 +78,7 @@ sealed class TypedNavigation {
             "$name/${arg1.toString()}/${arg2.toString()}/${arg3.toString()}/${arg4.toString()}"
     }
 
-    /**Implementation for the [TypedNavigationInterface5]
-     *
-     */
+    /**Implementation for the [TypedNavigationInterface5] */
     data class A5<A1, A2, A3, A4, A5>(
         override val name: String,
         override val t1: NavType<A1>,
