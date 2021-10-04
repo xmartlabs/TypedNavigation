@@ -17,7 +17,7 @@ To add your screen to the `NavHost`:
 ```[kotlin]
    setContent {
       val navigationController: NavHostController = rememberNavController()
-      NavHost(navController = navigationController, startDestination = Router.default.route) {
+      NavHost(navController = navigationController, startDestination = Router.default.url) {
         composable(Router.default) {
           Default(navigationController = navigationController)
         }
@@ -31,7 +31,7 @@ To add your screen to the `NavHost`:
 To navigate from one screen to another:
 
 ```[kotlin]
-navigationController.navigate(Router.sample.navigate("a", "b", "c"))
+navigationController.navigate(Router.sample.route("a", "b", "c"))
 ```
 
 For more examples you can check out our sample app.
