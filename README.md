@@ -25,6 +25,7 @@ setContent {
       Sample(a, b, c)
     }
   }
+}
 ```
 
 To navigate from one screen to another:
