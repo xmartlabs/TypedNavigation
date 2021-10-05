@@ -30,9 +30,17 @@ class MainActivity : ComponentActivity() {
                 composable(Router.sample) { a, b, c ->
                     Sample(a, b, c)
                 }
+                composable(Router.deepLink) {
+                    DeepLink()
+                }
             }
         }
     }
+}
+
+@Composable
+fun DeepLink() {
+    Text("This is a deep link screen")
 }
 
 @Composable
@@ -66,5 +74,11 @@ object Router {
     val default = TypedNavigation.E("default")
     val home = TypedNavigation.A2("home", NavType.StringType, NavType.IntType)
     val sample =
-        TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType)
+        TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
+            "www.example.com/$a1/$a2/$a3"
+        })
+    val deepLink = TypedNavigation.E(
+        "deepLink",
+        listOf { "www.example.com" }
+    )
 }
