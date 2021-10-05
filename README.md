@@ -16,7 +16,7 @@ You can add this library to your project by just adding the following code to yo
 	}
 ```
 
-and this other to your app `build.gradle`
+Then import the library in your app `build.gradle` file.
 
 ```groovy
 implementation 'com.github.xmartlabs:TypedNavigation:0.0.1'
