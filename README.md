@@ -8,12 +8,12 @@ A lightweight library to help you navigate in compose with well typed functions.
 You can add this library to your project by just adding the following code to your root `build.gradle`
 
 ```groovy
-	allprojects {
-		repositories {
-			// ...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		// ...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 
 Then import the library in your app `build.gradle` file.
