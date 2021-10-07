@@ -4,11 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -30,42 +35,48 @@ class MainActivity : ComponentActivity() {
                 composable(Router.sample) { a, b, c ->
                     Sample(a, b, c)
                 }
-                composable(Router.deepLink) {
-                    DeepLink()
-                }
             }
         }
     }
 }
 
 @Composable
-fun DeepLink() {
-    Text("This is a deep link screen")
-}
-
-@Composable
-fun Default(navigationController: NavHostController) = Row(
-    verticalAlignment = Alignment.CenterVertically,
-    horizontalArrangement = Arrangement.SpaceEvenly
+fun Default(navigationController: NavHostController) = Box(
+    contentAlignment = Alignment.Center,
+    modifier = Modifier.fillMaxSize()
 ) {
-    Button(onClick = { navigationController.navigate(Router.home.route("asd", 5)) }) {
-        Text(text = "Home")
-    }
-    Button(onClick = { navigationController.navigate(Router.sample.route("a", "b", "c")) }) {
-        Text(text = "Sample")
-    }
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Button(
+            onClick = { navigationController.navigate(Router.home.route("example", 5)) },
+            modifier = Modifier.padding(end = 10.dp)
+        ) {
+            Text(text = "Home")
+        }
+        Button(onClick = { navigationController.navigate(Router.sample.route("a", "b", "c")) }) {
+            Text(text = "Sample")
+        }
 
+    }
 }
 
 @Composable
-fun Home(a1: String?, a2: Int) {
+fun Home(a1: String?, a2: Int) = Box(
+    contentAlignment = Alignment.Center,
+    modifier = Modifier.fillMaxSize()
+) {
     Text(text = "Hello $a1 $a2!")
 }
 
 @Composable
-fun Sample(a1: String?, a2: String?, a3: String?) {
+fun Sample(a1: String?, a2: String?, a3: String?) = Box(
+    contentAlignment = Alignment.Center,
+    modifier = Modifier.fillMaxSize()
+) {
     TypedNavigationTheme {
-        Text(text = "Hello ${a1} ${a2} ${a3}!")
+        Text(text = "Hello $a1 $a2 $a3!")
     }
 }
 
@@ -76,9 +87,6 @@ object Router {
     val sample =
         TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
             "www.example.com/$a1/$a2/$a3"
-        })
-    val deepLink = TypedNavigation.E(
-        "deepLink",
-        listOf { "www.example.com" }
-    )
+        }
+        )
 }
