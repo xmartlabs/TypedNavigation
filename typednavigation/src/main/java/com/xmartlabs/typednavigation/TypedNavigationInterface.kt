@@ -1,6 +1,7 @@
 package com.xmartlabs.typednavigation
 
 import androidx.navigation.NamedNavArgument
+import androidx.navigation.NavDeepLink
 import androidx.navigation.NavType
 
 /**
@@ -9,12 +10,13 @@ An interface that implements the basic attributes needed for navigation
  * @property name the name of the destination screen
  * @property url the url string for the navigation
  * @property navArguments the list of [NamedNavArgument] for the destination screen
- *
+ * @property deepLinks the list of [NavDeepLink] for the destination screen
  */
 sealed interface TypedNavigationInterface {
     val name: String
     val url: String
     val navArguments: List<NamedNavArgument>
+    val deepLinks: List<NavDeepLink>
 }
 
 /** Defines the navigation without parameters

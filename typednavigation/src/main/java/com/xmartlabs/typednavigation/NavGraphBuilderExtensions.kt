@@ -5,24 +5,26 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 
 fun NavGraphBuilder.composable(
-        screen: TypedNavigationInterface,
-        function: @Composable () -> Unit
+    screen: TypedNavigationInterface0,
+    function: @Composable () -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         function()
     }
 }
 
 fun <A> NavGraphBuilder.composable(
-        screen: TypedNavigationInterface1<A>,
-        function: @Composable (A) -> Unit
+    screen: TypedNavigationInterface1<A>,
+    function: @Composable (A) -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         val arg1 = it.arguments?.get("a1") as A
         function(arg1)
@@ -30,12 +32,13 @@ fun <A> NavGraphBuilder.composable(
 }
 
 fun <A1, A2> NavGraphBuilder.composable(
-        screen: TypedNavigationInterface2<A1, A2>,
-        function: @Composable (A1, A2) -> Unit
+    screen: TypedNavigationInterface2<A1, A2>,
+    function: @Composable (A1, A2) -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         val arg1 = it.arguments?.get("a1") as A1
         val arg2 = it.arguments?.get("a2") as A2
@@ -44,12 +47,13 @@ fun <A1, A2> NavGraphBuilder.composable(
 }
 
 fun <A1, A2, A3> NavGraphBuilder.composable(
-        screen: TypedNavigationInterface3<A1, A2, A3>,
-        function: @Composable (A1, A2, A3) -> Unit
+    screen: TypedNavigationInterface3<A1, A2, A3>,
+    function: @Composable (A1, A2, A3) -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         val arg1 = it.arguments?.get("a1") as A1
         val arg2 = it.arguments?.get("a2") as A2
@@ -59,12 +63,13 @@ fun <A1, A2, A3> NavGraphBuilder.composable(
 }
 
 fun <A1, A2, A3, A4> NavGraphBuilder.composable(
-        screen: TypedNavigationInterface4<A1, A2, A3, A4>,
-        function: @Composable (A1, A2, A3, A4) -> Unit
+    screen: TypedNavigationInterface4<A1, A2, A3, A4>,
+    function: @Composable (A1, A2, A3, A4) -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         val arg1 = it.arguments?.get("a1") as A1
         val arg2 = it.arguments?.get("a2") as A2
@@ -75,12 +80,13 @@ fun <A1, A2, A3, A4> NavGraphBuilder.composable(
 }
 
 fun <A1, A2, A3, A4, A5> NavGraphBuilder.composable(
-        screen: TypedNavigationInterface5<A1, A2, A3, A4, A5>,
-        function: @Composable (A1, A2, A3, A4, A5) -> Unit
+    screen: TypedNavigationInterface5<A1, A2, A3, A4, A5>,
+    function: @Composable (A1, A2, A3, A4, A5) -> Unit
 ) {
     composable(
-            screen.url,
-            screen.navArguments
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
     ) {
         val arg1 = it.arguments?.get("a1") as A1
         val arg2 = it.arguments?.get("a2") as A2
