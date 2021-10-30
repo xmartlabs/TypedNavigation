@@ -32,8 +32,8 @@ class MainActivity : ComponentActivity() {
                 composable(Router.home) { a1, a2 ->
                     Home(a1, a2)
                 }
-                composable(Router.sample) { a, b, c ->
-                    Sample(a, b, c)
+                composable(Router.example) { a, b, c ->
+                    Example(a, b, c)
                 }
             }
         }
@@ -55,7 +55,7 @@ fun Default(navigationController: NavHostController) = Box(
         ) {
             Text(text = "Home")
         }
-        Button(onClick = { navigationController.navigate(Router.sample.route("a", "b", "c")) }) {
+        Button(onClick = { navigationController.navigate(Router.example.route("a", "b", "c")) }) {
             Text(text = "Sample")
         }
 
@@ -71,7 +71,7 @@ fun Home(a1: String?, a2: Int) = Box(
 }
 
 @Composable
-fun Sample(a1: String?, a2: String?, a3: String?) = Box(
+fun Example(a1: String?, a2: String?, a3: String?) = Box(
     contentAlignment = Alignment.Center,
     modifier = Modifier.fillMaxSize()
 ) {
@@ -80,12 +80,11 @@ fun Sample(a1: String?, a2: String?, a3: String?) = Box(
     }
 }
 
-
 object Router {
     val default = TypedNavigation.E("default")
     val home = TypedNavigation.A2("home", NavType.StringType, NavType.IntType)
-    val sample =
-        TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
+    val example =
+        TypedNavigation.A3("example", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
             "www.example.com/$a1/$a2/$a3"
         }
         )
