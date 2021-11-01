@@ -5,6 +5,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 
 fun NavGraphBuilder.composable(
+    screen: TypedNavigationInterface,
+    function: @Composable () -> Unit
+) {
+    composable(
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
+    ) {
+        function()
+    }
+}
+
+fun NavGraphBuilder.composable(
     screen: TypedNavigationInterface0,
     function: @Composable () -> Unit
 ) {
