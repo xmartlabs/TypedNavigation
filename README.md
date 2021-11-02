@@ -70,6 +70,28 @@ Add deep linking to your screen by setting up the correct path to the url:
     )
 ```
 
+### Use it with hilt ViewModel
+You can access attributes stored in the `SavedStateHandle` by using `withAttributes`
+
+```kotlin
+@HiltViewModel
+class HiltExampleViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
+    data class ScreenState(val name: String? = null, val age: Int? = null, val knowsHilt: Boolean? = null)
+
+    val stateFlow: MutableStateFlow<ScreenState> = MutableStateFlow(ScreenState())
+
+    init {
+        Router.hiltExample.withAttributes(savedStateHandle) { name, age, knowsHilt ->
+            viewModelScope.launch {
+                stateFlow.emit(ScreenState(name!!, age, knowsHilt))
+            }
+        }
+    }
+}
+```
+
 For more examples you can check out our example app.
 
 ## About
