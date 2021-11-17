@@ -10,7 +10,7 @@ Executes a function with the attributes defined in the [TypedNavigationInterface
  *
  * @return an execution of the given function
  */
-fun <A> TypedNavigationInterface1<A>.withAttributes(
+public fun <A> TypedNavigationInterface1<A>.withAttributes(
     savedStateHandle: SavedStateHandle,
     function: (A) -> Unit
 ) {
@@ -26,7 +26,7 @@ Executes a function with the attributes defined in the [TypedNavigationInterface
  *
  * @return an execution of the given function
  */
-fun <A1, A2> TypedNavigationInterface2<A1, A2>.withAttributes(
+public fun <A1, A2> TypedNavigationInterface2<A1, A2>.withAttributes(
     savedStateHandle: SavedStateHandle,
     function: (A1, A2) -> Unit
 ) {
@@ -43,7 +43,7 @@ Executes a function with the attributes defined in the [TypedNavigationInterface
  *
  * @return an execution of the given function
  */
-fun <A1, A2, A3> TypedNavigationInterface3<A1, A2, A3>.withAttributes(
+public fun <A1, A2, A3> TypedNavigationInterface3<A1, A2, A3>.withAttributes(
     savedStateHandle: SavedStateHandle,
     function: (A1, A2, A3) -> Unit
 ) {
@@ -61,7 +61,7 @@ Executes a function with the attributes defined in the [TypedNavigationInterface
  *
  * @return an execution of the given function
  */
-fun <A1, A2, A3, A4> TypedNavigationInterface4<A1, A2, A3, A4>.withAttributes(
+public fun <A1, A2, A3, A4> TypedNavigationInterface4<A1, A2, A3, A4>.withAttributes(
     savedStateHandle: SavedStateHandle,
     function: (A1, A2, A3, A4) -> Unit
 ) {
@@ -80,7 +80,7 @@ Executes a function with the attributes defined in the [TypedNavigationInterface
  *
  * @return an execution of the given function
  */
-fun <A1, A2, A3, A4, A5> TypedNavigationInterface5<A1, A2, A3, A4, A5>.withAttributes(
+public fun <A1, A2, A3, A4, A5> TypedNavigationInterface5<A1, A2, A3, A4, A5>.withAttributes(
     savedStateHandle: SavedStateHandle,
     function: (A1, A2, A3, A4, A5) -> Unit
 ) {
