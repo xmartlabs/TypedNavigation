@@ -46,8 +46,8 @@ setContent {
         composable(Router.default) {
             Default(navigationController = navigationController)
         }
-        composable(Router.sample) { a: String?, b: String?, c: String? ->
-            Sample(a, b, c)
+        composable(Router.example) { a: String?, b: String?, c: String? ->
+            Example(a, b, c)
         }
     }
 }
@@ -56,21 +56,43 @@ setContent {
 To navigate from one screen to another:
 
 ```kotlin
-navigationController.navigate(Router.sample.route("a", "b", "c"))
+navigationController.navigate(Router.example.route("a", "b", "c"))
 ```
 
 Add deep linking to your screen by setting up the correct path to the url:
 
 ```kotlin
-   val sample =
-    TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType,
+   val example =
+    TypedNavigation.A3("example", NavType.StringType, NavType.StringType, NavType.StringType,
         listOf { a1, a2, a3 -> // a1, a2 and a3 contains the keys for the attributes previously defined
             "www.example.com/$a1/$a2/$a3" 
         }
     )
 ```
 
-For more examples you can check out our sample app.
+### Use it with hilt ViewModel
+You can access attributes stored in the `SavedStateHandle` by using `withAttributes`
+
+```kotlin
+@HiltViewModel
+class HiltExampleViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
+    data class ScreenState(val name: String? = null, val age: Int? = null, val knowsHilt: Boolean? = null)
+
+    val stateFlow: MutableStateFlow<ScreenState> = MutableStateFlow(ScreenState())
+
+    init {
+        Router.hiltExample.withAttributes(savedStateHandle) { name, age, knowsHilt ->
+            viewModelScope.launch {
+                stateFlow.emit(ScreenState(name!!, age, knowsHilt))
+            }
+        }
+    }
+}
+```
+
+For more examples you can check out our example app.
 
 ## About
 

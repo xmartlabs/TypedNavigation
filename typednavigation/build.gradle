@@ -42,10 +42,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlin.explicitApi = 'strict'
+
     kotlinOptions {
         jvmTarget = '1.8'
         useIR = true
         languageVersion = "1.5"
+        freeCompilerArgs += [
+                '-Xexplicit-api=strict',
+        ]
     }
 
     composeOptions {

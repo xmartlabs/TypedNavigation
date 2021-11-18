@@ -8,11 +8,11 @@ import androidx.navigation.navDeepLink
 
 
 /** Sealed class that implements [TypedNavigationInterface] */
-sealed class TypedNavigation {
+public sealed class TypedNavigation {
     /** Implementation for the [TypedNavigationInterface0]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class E(
+    public data class E(
         override val name: String,
         private val deepLinksBuilder: List<() -> String> = listOf()
     ) : TypedNavigation(), TypedNavigationInterface0 {
@@ -30,7 +30,7 @@ sealed class TypedNavigation {
     /** Implementation for the [TypedNavigationInterface1]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class A1<A>(
+    public data class A1<A>(
         override val name: String,
         override val t1: NavType<A>,
         private val deepLinksBuilder: List<(String) -> String> = listOf()
@@ -51,7 +51,7 @@ sealed class TypedNavigation {
     /** Implementation for the [TypedNavigationInterface2]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class A2<A1, A2>(
+    public data class A2<A1, A2>(
         override val name: String,
         override val t1: NavType<A1>,
         override val t2: NavType<A2>,
@@ -77,7 +77,7 @@ sealed class TypedNavigation {
     /** Implementation for the [TypedNavigationInterface3]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class A3<A1, A2, A3>(
+    public data class A3<A1, A2, A3>(
         override val name: String,
         override val t1: NavType<A1>,
         override val t2: NavType<A2>,
@@ -103,7 +103,7 @@ sealed class TypedNavigation {
     /** Implementation for the [TypedNavigationInterface4]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class A4<A1, A2, A3, A4>(
+    public data class A4<A1, A2, A3, A4>(
         override val name: String,
         override val t1: NavType<A1>,
         override val t2: NavType<A2>,
@@ -131,7 +131,7 @@ sealed class TypedNavigation {
     /**Implementation for the [TypedNavigationInterface5]
      * @property deepLinksBuilder is a list of functions that when executed provide the uriPattern for the deep linking
      * */
-    data class A5<A1, A2, A3, A4, A5>(
+    public data class A5<A1, A2, A3, A4, A5>(
         override val name: String,
         override val t1: NavType<A1>,
         override val t2: NavType<A2>,

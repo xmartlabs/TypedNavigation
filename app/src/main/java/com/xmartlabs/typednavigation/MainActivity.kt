@@ -3,6 +3,7 @@ package com.xmartlabs.typednavigation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -14,13 +15,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.xmartlabs.typednavigation.ui.hiltExapmle.HiltExample
+import com.xmartlabs.typednavigation.ui.hiltExapmle.HiltExampleViewModel
 import com.xmartlabs.typednavigation.ui.theme.TypedNavigationTheme
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,8 +39,12 @@ class MainActivity : ComponentActivity() {
                 composable(Router.home) { a1, a2 ->
                     Home(a1, a2)
                 }
-                composable(Router.sample) { a, b, c ->
-                    Sample(a, b, c)
+                composable(Router.example) { a, b, c ->
+                    Example(a, b, c)
+                }
+                composable(Router.hiltExample) {
+                    val hiltExampleViewModel = hiltViewModel<HiltExampleViewModel>()
+                    HiltExample(hiltExampleViewModel)
                 }
             }
         }
@@ -55,10 +66,12 @@ fun Default(navigationController: NavHostController) = Box(
         ) {
             Text(text = "Home")
         }
-        Button(onClick = { navigationController.navigate(Router.sample.route("a", "b", "c")) }) {
-            Text(text = "Sample")
+        Button(onClick = { navigationController.navigate(Router.example.route("a", "b", "c")) }) {
+            Text(text = "Example")
         }
-
+        Button(onClick = { navigationController.navigate(Router.hiltExample.route("Michael", 23, false)) }) {
+            Text(text = "Hilt Example")
+        }
     }
 }
 
@@ -71,7 +84,7 @@ fun Home(a1: String?, a2: Int) = Box(
 }
 
 @Composable
-fun Sample(a1: String?, a2: String?, a3: String?) = Box(
+fun Example(a1: String?, a2: String?, a3: String?) = Box(
     contentAlignment = Alignment.Center,
     modifier = Modifier.fillMaxSize()
 ) {
@@ -80,13 +93,13 @@ fun Sample(a1: String?, a2: String?, a3: String?) = Box(
     }
 }
 
-
 object Router {
     val default = TypedNavigation.E("default")
     val home = TypedNavigation.A2("home", NavType.StringType, NavType.IntType)
-    val sample =
-        TypedNavigation.A3("sample", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
+    val example =
+        TypedNavigation.A3("example", NavType.StringType, NavType.StringType, NavType.StringType, listOf { a1, a2, a3 ->
             "www.example.com/$a1/$a2/$a3"
         }
         )
+    val hiltExample = TypedNavigation.A3("hiltExample", NavType.StringType, NavType.IntType, NavType.BoolType)
 }

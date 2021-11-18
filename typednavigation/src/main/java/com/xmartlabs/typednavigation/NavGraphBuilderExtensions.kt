@@ -4,7 +4,20 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 
-fun NavGraphBuilder.composable(
+public fun NavGraphBuilder.composable(
+    screen: TypedNavigationInterface,
+    function: @Composable () -> Unit
+) {
+    composable(
+        screen.url,
+        screen.navArguments,
+        screen.deepLinks
+    ) {
+        function()
+    }
+}
+
+public fun NavGraphBuilder.composable(
     screen: TypedNavigationInterface0,
     function: @Composable () -> Unit
 ) {
@@ -17,7 +30,7 @@ fun NavGraphBuilder.composable(
     }
 }
 
-fun <A> NavGraphBuilder.composable(
+public fun <A> NavGraphBuilder.composable(
     screen: TypedNavigationInterface1<A>,
     function: @Composable (A) -> Unit
 ) {
@@ -31,7 +44,7 @@ fun <A> NavGraphBuilder.composable(
     }
 }
 
-fun <A1, A2> NavGraphBuilder.composable(
+public fun <A1, A2> NavGraphBuilder.composable(
     screen: TypedNavigationInterface2<A1, A2>,
     function: @Composable (A1, A2) -> Unit
 ) {
@@ -46,7 +59,7 @@ fun <A1, A2> NavGraphBuilder.composable(
     }
 }
 
-fun <A1, A2, A3> NavGraphBuilder.composable(
+public fun <A1, A2, A3> NavGraphBuilder.composable(
     screen: TypedNavigationInterface3<A1, A2, A3>,
     function: @Composable (A1, A2, A3) -> Unit
 ) {
@@ -62,7 +75,7 @@ fun <A1, A2, A3> NavGraphBuilder.composable(
     }
 }
 
-fun <A1, A2, A3, A4> NavGraphBuilder.composable(
+public fun <A1, A2, A3, A4> NavGraphBuilder.composable(
     screen: TypedNavigationInterface4<A1, A2, A3, A4>,
     function: @Composable (A1, A2, A3, A4) -> Unit
 ) {
@@ -79,7 +92,7 @@ fun <A1, A2, A3, A4> NavGraphBuilder.composable(
     }
 }
 
-fun <A1, A2, A3, A4, A5> NavGraphBuilder.composable(
+public fun <A1, A2, A3, A4, A5> NavGraphBuilder.composable(
     screen: TypedNavigationInterface5<A1, A2, A3, A4, A5>,
     function: @Composable (A1, A2, A3, A4, A5) -> Unit
 ) {

@@ -12,20 +12,20 @@ An interface that implements the basic attributes needed for navigation
  * @property navArguments the list of [NamedNavArgument] for the destination screen
  * @property deepLinks the list of [NavDeepLink] for the destination screen
  */
-sealed interface TypedNavigationInterface {
-    val name: String
-    val url: String
-    val navArguments: List<NamedNavArgument>
-    val deepLinks: List<NavDeepLink>
+public sealed interface TypedNavigationInterface {
+    public val name: String
+    public val url: String
+    public val navArguments: List<NamedNavArgument>
+    public val deepLinks: List<NavDeepLink>
 }
 
 /** Defines the navigation without parameters
  *
  */
-interface TypedNavigationInterface0 : TypedNavigationInterface {
+public interface TypedNavigationInterface0 : TypedNavigationInterface {
 
     /** Returns the route of the destination */
-    fun route(): String
+    public fun route(): String
 }
 
 /** An interface that implements navigation with 1 parameter
@@ -33,15 +33,15 @@ interface TypedNavigationInterface0 : TypedNavigationInterface {
  * @property t1 the [NavType] for the argument
  *
  */
-interface TypedNavigationInterface1<A> : TypedNavigationInterface {
-    val t1: NavType<A>
+public interface TypedNavigationInterface1<A> : TypedNavigationInterface {
+    public val t1: NavType<A>
 
     /** Get the [String] route for the destination
      * @param arg1 the argument corresponding to the [NavType] of [t1]
      *
      * @return the [String] containing the route of the destination
      */
-    fun route(arg1: A): String
+    public fun route(arg1: A): String
 }
 
 /** An interface that implements navigation with 2 parameters
@@ -50,9 +50,9 @@ interface TypedNavigationInterface1<A> : TypedNavigationInterface {
  * @property t2 the [NavType] for the second argument
  *
  */
-interface TypedNavigationInterface2<A1, A2> : TypedNavigationInterface {
-    val t1: NavType<A1>
-    val t2: NavType<A2>
+public interface TypedNavigationInterface2<A1, A2> : TypedNavigationInterface {
+    public val t1: NavType<A1>
+    public val t2: NavType<A2>
 
     /** Get the [String] route for the destination
      * @param arg1 the argument corresponding to the [NavType] of [t1]
@@ -60,7 +60,7 @@ interface TypedNavigationInterface2<A1, A2> : TypedNavigationInterface {
      *
      * @return the [String] containing the route of the destination
      */
-    fun route(arg1: A1, arg2: A2): String
+    public fun route(arg1: A1, arg2: A2): String
 }
 
 /** An interface that implements navigation with 3 parameters
@@ -70,10 +70,10 @@ interface TypedNavigationInterface2<A1, A2> : TypedNavigationInterface {
  * @property t3 the [NavType] for the third argument
  *
  */
-interface TypedNavigationInterface3<A1, A2, A3> : TypedNavigationInterface {
-    val t1: NavType<A1>
-    val t2: NavType<A2>
-    val t3: NavType<A3>
+public interface TypedNavigationInterface3<A1, A2, A3> : TypedNavigationInterface {
+    public val t1: NavType<A1>
+    public val t2: NavType<A2>
+    public val t3: NavType<A3>
 
     /** Get the [String] route for the destination
      * @param arg1 the argument corresponding to the [NavType] of [t1]
@@ -82,7 +82,7 @@ interface TypedNavigationInterface3<A1, A2, A3> : TypedNavigationInterface {
      *
      * @return the [String] containing the route of the destination
      */
-    fun route(arg1: A1, arg2: A2, arg3: A3): String
+    public fun route(arg1: A1, arg2: A2, arg3: A3): String
 }
 
 /** An interface that implements navigation with 4 parameters
@@ -93,11 +93,11 @@ interface TypedNavigationInterface3<A1, A2, A3> : TypedNavigationInterface {
  * @property t4 the [NavType] for the fourth argument
  *
  */
-interface TypedNavigationInterface4<A1, A2, A3, A4> : TypedNavigationInterface {
-    val t1: NavType<A1>
-    val t2: NavType<A2>
-    val t3: NavType<A3>
-    val t4: NavType<A4>
+public interface TypedNavigationInterface4<A1, A2, A3, A4> : TypedNavigationInterface {
+    public val t1: NavType<A1>
+    public val t2: NavType<A2>
+    public val t3: NavType<A3>
+    public val t4: NavType<A4>
 
 
     /** Get the [String] route for the destination
@@ -108,7 +108,7 @@ interface TypedNavigationInterface4<A1, A2, A3, A4> : TypedNavigationInterface {
      *
      * @return the [String] containing the route of the destination
      */
-    fun route(arg1: A1, arg2: A2, arg3: A3, arg4: A4): String
+    public fun route(arg1: A1, arg2: A2, arg3: A3, arg4: A4): String
 }
 
 /** An interface that implements navigation with 5 parameters
@@ -120,12 +120,12 @@ interface TypedNavigationInterface4<A1, A2, A3, A4> : TypedNavigationInterface {
  * @property t5 the [NavType] for the fifth argument
  *
  */
-interface TypedNavigationInterface5<A1, A2, A3, A4, A5> : TypedNavigationInterface {
-    val t1: NavType<A1>
-    val t2: NavType<A2>
-    val t3: NavType<A3>
-    val t4: NavType<A4>
-    val t5: NavType<A5>
+public interface TypedNavigationInterface5<A1, A2, A3, A4, A5> : TypedNavigationInterface {
+    public val t1: NavType<A1>
+    public val t2: NavType<A2>
+    public val t3: NavType<A3>
+    public val t4: NavType<A4>
+    public val t5: NavType<A5>
 
     /** Get the [String] route for the destination
      * @param arg1 the argument corresponding to the [NavType] of [t1]
@@ -136,5 +136,5 @@ interface TypedNavigationInterface5<A1, A2, A3, A4, A5> : TypedNavigationInterfa
      *
      * @return the [String] containing the route of the destination
      */
-    fun route(arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5): String
+    public fun route(arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5): String
 }
