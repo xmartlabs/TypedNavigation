@@ -14,7 +14,7 @@ import javax.inject.Inject
 class HiltExampleViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    data class ScreenState(val name: String? = null, val age: Int? = null, val knowsHilt: Boolean? = null)
+    data class ScreenState(val name: String? = null, val age: Boolean? = null, val knowsHilt: Boolean? = null)
 
     val stateFlow: MutableStateFlow<ScreenState> = MutableStateFlow(ScreenState())
 
