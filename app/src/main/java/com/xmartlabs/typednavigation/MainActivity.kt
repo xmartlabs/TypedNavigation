@@ -1,7 +1,6 @@
 package com.xmartlabs.typednavigation
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +18,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.xmartlabs.typednavigation.ui.hiltExapmle.HiltExample
 import com.xmartlabs.typednavigation.ui.hiltExapmle.HiltExampleViewModel
@@ -69,7 +67,7 @@ fun Default(navigationController: NavHostController) = Box(
         Button(onClick = { navigationController.navigate(Router.example.route("a", "b", "c")) }) {
             Text(text = "Example")
         }
-        Button(onClick = { navigationController.navigate(Router.hiltExample.route("Michael", 23, false)) }) {
+        Button(onClick = { navigationController.navigate(Router.hiltExample.route(null, null, false)) }) {
             Text(text = "Hilt Example")
         }
     }
@@ -101,5 +99,6 @@ object Router {
             "www.example.com/$a1/$a2/$a3"
         }
         )
-    val hiltExample = TypedNavigation.A3("hiltExample", NavType.StringType, NavType.IntType, NavType.BoolType)
+    val hiltExample =
+        TypedNavigation.A3("hiltExample", NavType.StringType, NavType.NullableBool, NavType.BoolType)
 }

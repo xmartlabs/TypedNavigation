@@ -37,7 +37,7 @@ public sealed class TypedNavigation {
     ) : TypedNavigation(), TypedNavigationInterface1<A> {
         override val url: String = "$name/{a1}"
         override val navArguments: List<NamedNavArgument> = listOf(
-            navArgument("a1") { type = t1 }
+            t1.toNavArgument("a1"),
         )
         override val deepLinks: List<NavDeepLink> = deepLinksBuilder.map { func ->
             navDeepLink {
@@ -66,8 +66,8 @@ public sealed class TypedNavigation {
 
 
         override val navArguments: List<NamedNavArgument> = listOf(
-            navArgument("a1") { type = t1 },
-            navArgument("a2") { type = t2 }
+            t1.toNavArgument("a1"),
+            t2.toNavArgument("a2"),
         )
 
         override fun route(arg1: A1, arg2: A2): String =
@@ -86,9 +86,9 @@ public sealed class TypedNavigation {
     ) : TypedNavigation(), TypedNavigationInterface3<A1, A2, A3> {
         override val url: String = "$name/{a1}/{a2}/{a3}"
         override val navArguments: List<NamedNavArgument> = listOf(
-            navArgument("a1") { type = t1 },
-            navArgument("a2") { type = t2 },
-            navArgument("a3") { type = t3 },
+            t1.toNavArgument("a1"),
+            t2.toNavArgument("a2"),
+            t3.toNavArgument("a3"),
         )
         override val deepLinks: List<NavDeepLink> = deepLinksBuilder.map { func ->
             navDeepLink {
@@ -113,10 +113,10 @@ public sealed class TypedNavigation {
     ) : TypedNavigation(), TypedNavigationInterface4<A1, A2, A3, A4> {
         override val url: String = "$name/{a1}/{a2}/{a3}/{a4}"
         override val navArguments: List<NamedNavArgument> = listOf(
-            navArgument("a1") { type = t1 },
-            navArgument("a2") { type = t2 },
-            navArgument("a3") { type = t3 },
-            navArgument("a4") { type = t4 },
+            t1.toNavArgument("a1"),
+            t2.toNavArgument("a2"),
+            t3.toNavArgument("a3"),
+            t4.toNavArgument("a4"),
         )
         override val deepLinks: List<NavDeepLink> = deepLinksBuilder.map { func ->
             navDeepLink {
@@ -143,11 +143,11 @@ public sealed class TypedNavigation {
         override val url: String = "$name/{a1}/{a2}/{a3}/{a4}/{a5}"
 
         override val navArguments: List<NamedNavArgument> = listOf(
-            navArgument("a1") { type = t1 },
-            navArgument("a2") { type = t2 },
-            navArgument("a3") { type = t3 },
-            navArgument("a4") { type = t4 },
-            navArgument("a5") { type = t5 },
+            t1.toNavArgument("a1"),
+            t2.toNavArgument("a2"),
+            t3.toNavArgument("a3"),
+            t4.toNavArgument("a4"),
+            t5.toNavArgument("a5"),
         )
 
         override val deepLinks: List<NavDeepLink> = deepLinksBuilder.map { func ->
@@ -159,4 +159,9 @@ public sealed class TypedNavigation {
         override fun route(arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5): String =
             "$name/${arg1.toString()}/${arg2.toString()}/${arg3.toString()}/${arg4.toString()}/${arg5.toString()}"
     }
+}
+
+private fun NavType<*>.toNavArgument(name: String) = navArgument(name) {
+    type = this@toNavArgument
+    nullable = isNullableAllowed
 }
