@@ -93,3 +93,16 @@ public val NavType.Companion.NullableFloat: NavType<Float?>
             return value.toFloat()
         }
     }
+
+public val NavType.Companion.NotNullString: NavType<String>
+    get() = object : NavType<String>(false) {
+        override val name: String
+            get() = "String?"
+
+        override fun put(bundle: Bundle, key: String, value: String) = bundle.putString(key, value)
+
+
+        override fun get(bundle: Bundle, key: String): String = bundle.getString(key)!!
+
+        override fun parseValue(value: String): String = value
+    }
