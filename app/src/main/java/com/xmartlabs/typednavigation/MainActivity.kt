@@ -64,7 +64,10 @@ fun Default(navigationController: NavHostController) = Box(
         ) {
             Text(text = "Home")
         }
-        Button(onClick = { navigationController.navigate(Router.example.route("a", "b", "c")) }) {
+        Button(
+            onClick = { navigationController.navigate(Router.example.route("a", "b", "c")) },
+            modifier = Modifier.padding(end = 10.dp)
+        ) {
             Text(text = "Example")
         }
         Button(onClick = { navigationController.navigate(Router.hiltExample.route(null, null, false)) }) {
