@@ -21,7 +21,7 @@ allprojects {
 Then import the library in your app `build.gradle` file.
 
 ```groovy
-implementation 'com.github.xmartlabs:TypedNavigation:0.0.3'
+implementation 'com.github.xmartlabs:TypedNavigation:0.0.4'
 ```
 
 ## Usage:
